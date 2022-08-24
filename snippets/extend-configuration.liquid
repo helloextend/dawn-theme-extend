@@ -1,0 +1,29 @@
+<!-- Extend - Add necessary SDK script tags and configure the store -->
+<script src='https://sdk.helloextend.com/extend-sdk-client/v1/extend-sdk-client.min.js' defer='defer'></script>
+<script src='https://sdk.helloextend.com/extend-sdk-client-shopify-addon/v1/extend-sdk-client-shopify-addon.min.js' defer='defer'></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function(){
+        window.Extend.config({ storeId: '94a54ab9-ff52-4ccf-aa7d-4d13bb4b284d', environment: 'production' })
+        window.Extend.integration = {};
+        window.Extend.integration.analytics = false;
+
+        // Extend - QA Cypress booleans
+        window.Extend.integration.isExtendPdpOfferEnabled = true;
+        window.Extend.integration.isExtendOfferModalEnabled = true;
+        window.Extend.integration.isExtendMainCartOfferEnabled = true;
+        // Extend - End Code
+    });
+</script>
+
+<!-- Extend - Render aftermarket integration snippet -->
+{% render 'extend-aftermarket-integration' %}
+
+<!-- Extend -- Load product integration script -->
+{% render 'extend-product-integration' %}
+
+<!-- Extend -- Load cart integration script -->
+{% render 'extend-cart-integration' %}
+
+<!-- Extend - Render analytics -->
+{% render 'extend-analytics' %}
+<!-- Extend - End Extend code -->
